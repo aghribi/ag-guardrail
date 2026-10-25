@@ -1,6 +1,6 @@
 {
   "name": "ag-guardrail",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Runtime safety proxy \u2014 prompt injection, jailbreak, PII, harmful content",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

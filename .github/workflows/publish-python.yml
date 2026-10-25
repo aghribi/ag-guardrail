@@ -47,6 +47,14 @@ jobs:
         working-directory: packages/python
         run: poetry build
 
+      # The test job installs [all] extras, which hide missing base dependencies.
+      - name: Install check
+        working-directory: packages/python
+        run: |
+          python -m venv /tmp/check
+          /tmp/check/bin/pip install dist/*.whl
+          /tmp/check/bin/python -c "import ag_guardrail; print(ag_guardrail.__version__)"
+
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
