@@ -33,9 +33,9 @@ False prompt_injection
 
 The TypeScript package `ag-guardrail` is a port of the core classes.
 
-## Hosted API
+## Self-hosted API
 
-`HostedGuardrail` runs the checks in the hosted API, including an LLM classifier and custom policies. API keys are issued at https://ai.artifact-network.org. The default endpoint is `https://ai-api.artifact-network.org`; pass a different base URL to use your own deployment.
+`HostedGuardrail` runs the checks, including an LLM classifier and custom policies, in a self-run [ag-platform](https://github.com/aghribi/ag-platform) deployment: `HostedGuardrail(api_key=..., base_url=...)` (TypeScript: `baseUrl`). There is no default endpoint.
 
 ## Development
 

@@ -1,6 +1,6 @@
 export interface HostedGuardrailOptions {
   apiKey: string;
-  baseUrl?: string;
+  baseUrl: string;
   timeout?: number;
 }
 
@@ -29,7 +29,7 @@ export class HostedGuardrail {
   private readonly headers: Record<string, string>;
   private readonly timeout: number;
 
-  constructor({ apiKey, baseUrl = "https://ai-api.artifact-network.org", timeout = 15_000 }: HostedGuardrailOptions) {
+  constructor({ apiKey, baseUrl, timeout = 15_000 }: HostedGuardrailOptions) {
     this.base = baseUrl.replace(/\/$/, "");
     this.headers = {
       Authorization: `Bearer ${apiKey}`,

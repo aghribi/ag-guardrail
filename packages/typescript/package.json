@@ -1,7 +1,7 @@
 {
   "name": "ag-guardrail",
-  "version": "0.5.1",
-  "description": "Runtime safety proxy \u2014 prompt injection, jailbreak, PII, harmful content",
+  "version": "0.6.0",
+  "description": "Runtime safety proxy — prompt injection, jailbreak, PII, harmful content",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -46,6 +46,9 @@
   },
   "license": "MIT",
   "contributors": [
-    { "name": "Adnan Ghribi", "url": "https://github.com/aghribi" }
+    {
+      "name": "Adnan Ghribi",
+      "url": "https://github.com/aghribi"
+    }
   ]
 }

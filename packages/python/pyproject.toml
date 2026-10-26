@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "ag-guardrail"
-version = "0.5.1"
+version = "0.6.0"
 description = "Runtime safety proxy for LLM applications"
 authors = ["Adnan Ghribi <aghribi@gmail.com>"]
 license = "MIT"
