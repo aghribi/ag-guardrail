@@ -25,18 +25,18 @@ anthropic = ["anthropic"]
 all       = ["openai", "anthropic"]
 
 [tool.poetry.dependencies.openai]
-version  = "^1.0"
+version  = ">=1.55.3,<2"
 optional = true
 
 [tool.poetry.dependencies.anthropic]
-version  = "^0.25"
+version  = ">=0.40,<3"
 optional = true
 
 [tool.poetry.group.dev.dependencies]
 pytest         = "^8.0"
 pytest-asyncio = "^0.23"
 ruff           = "^0.4"
-openai         = "^1.0"
+openai         = ">=1.55.3,<2"
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
