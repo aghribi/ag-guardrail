@@ -16,6 +16,15 @@ const PATTERNS: [RegExp, number, string][] = [
   [/\[INST\]|\[\/INST\]|<<SYS>>|<<\/SYS>>/i, 0.9, "LLM format injection"],
   [/(translate|summarise|summarize)\s+the\s+(above|following|text)\s+(into|as)\s+instructions?/i, 0.7, "indirect injection via translation"],
   [/from now on\s+(you|your).{0,30}(ignore|forget|disregard)/i, 0.9, "persistent instruction override"],
+  // French, and fake role lines a message can carry to pass as the conversation.
+  [/ignor\w*\s+(toutes?\s+)?(les\s+|tes\s+|vos\s+)?(instructions?|consignes?|directives?)\s+(pr[ée]c[ée]dentes?|ant[ée]rieures?|ci-dessus)/im, 1.0, "instruction override"],
+  [/oublie[sz]?\s+(tout\s+ce\s+qui\s+pr[ée]c[èe]de|(toutes\s+)?(tes|vos|les)\s+(instructions?|consignes?|directives?))/im, 1.0, "instruction override"],
+  [/(tes|vos)\s+(vraies|v[ée]ritables|nouvelles)\s+(instructions?|consignes?|directives?|t[âa]ches?)\s+(sont|est)/im, 0.9, "hidden instruction injection"],
+  [/(tu\s+es|vous\s+[êe]tes)\s+(d[ée]sormais|maintenant)\s+(un|une)\s+/im, 0.8, "persona override attempt"],
+  [/contourne[sz]?\s+(tes|vos)\s+(instructions?|consignes?|r[èe]gles|restrictions?|prompt\s+syst[èe]me)/im, 1.0, "system prompt override"],
+  [/(affiche|r[ée]v[èe]le|montre|r[ée]p[èe]te|donne)[sz]?(-moi)?\s+(ton|votre|tes|vos)\s+(prompt\s+syst[èe]me|instructions?\s+initiales|consignes?\s+initiales|instructions?|consignes?)/im, 0.9, "system prompt extraction"],
+  [/[àa]\s+partir\s+de\s+maintenant.{0,40}(ignore|oublie)/im, 0.9, "persistent instruction override"],
+  [/^\s*(system|syst[èe]me|assistant)\s*:\s*.{0,80}\b(please|ignore|send|forward|reply|envoie|transf[èe]re|r[ée]ponds|oublie)/im, 0.8, "fake role line"],
 ];
 
 export class PromptInjectionDetector extends Detector {
