@@ -25,7 +25,7 @@ _PATTERNS: list[tuple[re.Pattern, float, str]] = [
     (re.compile(r"contourne[sz]?\s+(tes|vos)\s+(instructions?|consignes?|r[èe]gles|restrictions?|prompt\s+syst[èe]me)", re.I | re.M), 1.0, "system prompt override"),
     (re.compile(r"(affiche|r[ée]v[èe]le|montre|r[ée]p[èe]te|donne)[sz]?(-moi)?\s+(ton|votre|tes|vos)\s+(prompt\s+syst[èe]me|instructions?\s+initiales|consignes?\s+initiales|instructions?|consignes?)", re.I | re.M), 0.9, "system prompt extraction"),
     (re.compile(r"[àa]\s+partir\s+de\s+maintenant.{0,40}(ignore|oublie)", re.I | re.M), 0.9, "persistent instruction override"),
-    (re.compile(r"^\s*(system|syst[èe]me|assistant)\s*:\s*.{0,80}\b(please|ignore|send|forward|reply|envoie|transf[èe]re|r[ée]ponds|oublie)", re.I | re.M), 0.8, "fake role line"),
+    (re.compile(r"^[ \t]*(system|syst[èe]me|assistant)[ \t]*:[ \t]*.{0,80}\b(please|ignore|send|forward|reply|envoie|transf[èe]re|r[ée]ponds|oublie)", re.I | re.M), 0.8, "fake role line"),
 ]
 
 _SCORE_THRESHOLD = 0.6

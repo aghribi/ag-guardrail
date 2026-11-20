@@ -24,7 +24,7 @@ const PATTERNS: [RegExp, number, string][] = [
   [/contourne[sz]?\s+(tes|vos)\s+(instructions?|consignes?|r[èe]gles|restrictions?|prompt\s+syst[èe]me)/im, 1.0, "system prompt override"],
   [/(affiche|r[ée]v[èe]le|montre|r[ée]p[èe]te|donne)[sz]?(-moi)?\s+(ton|votre|tes|vos)\s+(prompt\s+syst[èe]me|instructions?\s+initiales|consignes?\s+initiales|instructions?|consignes?)/im, 0.9, "system prompt extraction"],
   [/[àa]\s+partir\s+de\s+maintenant.{0,40}(ignore|oublie)/im, 0.9, "persistent instruction override"],
-  [/^\s*(system|syst[èe]me|assistant)\s*:\s*.{0,80}\b(please|ignore|send|forward|reply|envoie|transf[èe]re|r[ée]ponds|oublie)/im, 0.8, "fake role line"],
+  [/^[ \t]*(system|syst[èe]me|assistant)[ \t]*:[ \t]*.{0,80}\b(please|ignore|send|forward|reply|envoie|transf[èe]re|r[ée]ponds|oublie)/im, 0.8, "fake role line"],
 ];
 
 export class PromptInjectionDetector extends Detector {

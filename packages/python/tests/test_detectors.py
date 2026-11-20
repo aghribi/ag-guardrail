@@ -191,3 +191,10 @@ def test_pii_fr(text, label):
 ])
 def test_pii_fr_benign(text):
     assert PIIOutputDetector().check(text).passed
+
+
+def test_role_line_stays_linear_on_blank_lines():
+    import time
+    t = time.perf_counter()
+    PromptInjectionDetector().check("\n" * 200_000 + "x")
+    assert time.perf_counter() - t < 1.0
